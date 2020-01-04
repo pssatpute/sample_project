@@ -9,7 +9,7 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=30)
     password = models.CharField(max_length=200)
     date_of_birth = models.DateField()
-    city = models.CharField(max_length=100)
+    city = models.CharField(max_length=10)
 
     USERNAME_FIELD = 'phone_number'
     EMAIL_FIELD = 'email_id'
