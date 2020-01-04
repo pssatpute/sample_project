@@ -10,7 +10,7 @@ GENDER_OPTIONS = [
 
 
 class User(AbstractBaseUser):
-    phone_number = models.CharField(max_length=10, unique=True)
+    phone_number = models.CharField(max_length=10, unique=True, primary_key=True)
     email_id = models.EmailField(max_length=40, unique=True)
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=30)
