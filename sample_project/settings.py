@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sample_app.apps.SampleAppConfig',
     'user_app',
+    'sign_up_app',
 ]
 
 MIDDLEWARE = [
@@ -77,11 +78,11 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sample_db',
-        'USERNAME': 'pradnya',
+        'USER': 'pradnya',
         'PASSWORD': 'girish',
     }
 }
-AUTH_USER_MODEL = 'user_app.User'
+# AUTH_USER_MODEL = 'user_app.User'
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
