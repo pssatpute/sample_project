@@ -82,7 +82,7 @@ DATABASES = {
         'PASSWORD': 'girish',
     }
 }
-# AUTH_USER_MODEL = 'user_app.User'
+AUTH_USER_MODEL = 'user_app.User'
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
