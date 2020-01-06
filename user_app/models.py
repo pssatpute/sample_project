@@ -48,3 +48,6 @@ class User(AbstractBaseUser):
             'Designates whether this user has all permissions in the admin page or not'
         )
     )
+
+    class Meta:
+        db_table = 'auth_user'
