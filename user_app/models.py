@@ -17,14 +17,14 @@ class User(AbstractBaseUser):
     last_name = models.CharField(max_length=30)
     password = models.CharField(max_length=200)
     date_of_birth = models.DateField()
-    city = models.CharField(max_length=10, blank=True)
+    city = models.CharField(max_length=10)
     gender = models.CharField(max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0])
     date_joined = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'phone_number'
     EMAIL_FIELD = 'email_id'
     # for createsuperuser command will prompt for following
-    # REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['email_id', 'first_name', 'last_name', 'date_of_birth', 'city', 'gender']
 
     is_active = models.BooleanField(
         _('is_active'),
