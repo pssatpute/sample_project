@@ -30,6 +30,7 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(
         _('is_active'),
         default=True,
+        help_text=_(
             "Desinates whether this user should be considered active or not."
         ),
     )
