@@ -14,8 +14,8 @@ GENDER_OPTIONS = [
 class User(PermissionsMixin,AbstractBaseUser):
     "Django's permission framework gives you all the methods and db fields to support permission model"
 
-    phone_number = models.CharField(max_length=10, unique=True, primary_key=True)
-    email_id = models.EmailField(max_length=40, unique=True)
+    phone_number = models.CharField("Phone Number",max_length=10, unique=True, primary_key=True)
+    email_id = models.EmailField("Email ID", max_length=40, unique=True)
     first_name = models.CharField(max_length=15)
     last_name = models.CharField(max_length=30)
     password = models.CharField(max_length=200)
