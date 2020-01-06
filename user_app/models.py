@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from .managers.user_managers import UserManager
@@ -11,7 +11,9 @@ GENDER_OPTIONS = [
 ]
 
 
-class User(AbstractBaseUser):
+class User(PermissionsMixin,AbstractBaseUser):
+    "Django's permission framework gives you all the methods and db fields to support permission model"
+
     phone_number = models.CharField(max_length=10, unique=True, primary_key=True)
     email_id = models.EmailField(max_length=40, unique=True)
     first_name = models.CharField(max_length=15)
@@ -61,7 +63,7 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
-        if self.is_staff or self.is_superuser :
+        if self.is_staff or self.is_superuser:
             return True
         else:
             return False
@@ -70,4 +72,3 @@ class User(AbstractBaseUser):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         return True
-
