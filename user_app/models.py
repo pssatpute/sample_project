@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
 from .managers.user_managers import UserManager
+from sample_project import settings
 
 GENDER_OPTIONS = [
     ('female', 'Female'),

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'sign_up_app',
 ]
 
+# DATE_INPUT_FORMATS = ['%d/%m/%Y']
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
