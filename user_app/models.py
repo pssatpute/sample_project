@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
+from .managers.user_managers import UserManager
 
 GENDER_OPTIONS = [
     ('female', 'Female'),
@@ -48,6 +49,9 @@ class User(AbstractBaseUser):
             'Designates whether this user has all permissions in the admin page or not'
         )
     )
+
+    # custom user model defining username field other than username should define Custom Model Manager
+    objects = UserManager()
 
     class Meta:
         db_table = 'auth_user'
