@@ -30,7 +30,6 @@ class User(AbstractBaseUser):
     is_active = models.BooleanField(
         _('is_active'),
         default=True,
-        help_text=_(
             "Desinates whether this user should be considered active or not."
         ),
     )
@@ -65,3 +64,9 @@ class User(AbstractBaseUser):
             return True
         else:
             return False
+
+    def has_perm(self, perm, obj=None):
+        "Does the user have a specific permission?"
+        # Simplest possible answer: Yes, always
+        return True
+
