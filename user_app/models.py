@@ -56,3 +56,12 @@ class User(AbstractBaseUser):
 
     class Meta:
         db_table = 'auth_user'
+
+    # access of the user to admin content: permissions
+    def has_module_perms(self, app_label):
+        "Does the user have permissions to view the app `app_label`?"
+        # Simplest possible answer: Yes, always
+        if self.is_staff or self.is_superuser :
+            return True
+        else:
+            return False
