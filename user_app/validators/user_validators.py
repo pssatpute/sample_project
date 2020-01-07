@@ -1,10 +1,14 @@
 from django.core import validators
+import re
+from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
+
 
 def validate_first_name(first_name):
-    return validators.RegexValidator(
-        regex='^[A-Z][a-z]+$',
-        message='First name is invalid',
-        code='Invalid',
-        inverse_match=False,
-        flags=0
-    )
+    if re.fullmatch('^[A-Z][a-z]+$', first_name) is None:
+        raise ValidationError(
+            _('First name is invalid'),
+            code='Invalid'
+        )
+
+    return first_name
