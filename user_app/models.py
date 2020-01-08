@@ -16,15 +16,20 @@ GENDER_OPTIONS = [
 class User(PermissionsMixin, AbstractBaseUser):
     "Django's permission framework gives you all the methods and db fields to support permission model"
 
-    phone_number = models.CharField("Phone Number", max_length=10, unique=True, primary_key=True)
-    email_id = models.EmailField("Email ID", max_length=40, unique=True)
-    first_name = models.CharField(max_length=15, validators=[validators.MaxLengthValidator(limit_value=15),user_validators.validate_first_name])
-    last_name = models.CharField(max_length=30, validators=[validators.MaxLengthValidator(limit_value=20),user_validators.validate_last_name])
-    password = models.CharField(max_length=200)
-    date_of_birth = models.DateField()
-    city = models.CharField(max_length=10, validators=[user_validators.validate_city])
-    gender = models.CharField(max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0], help_text="Choose either Female or Male")
-    date_joined = models.DateTimeField(auto_now_add=True)
+    phone_number = models.CharField(db_column="Phone Number", max_length=10, unique=True, primary_key=True)
+    email_id = models.EmailField(db_column="Email ID", max_length=40, unique=True)
+    first_name = models.CharField(db_column="First Name", max_length=15,
+                                  validators=[validators.MaxLengthValidator(limit_value=15),
+                                              user_validators.validate_first_name])
+    last_name = models.CharField(db_column="Last Name", max_length=30,
+                                 validators=[validators.MaxLengthValidator(limit_value=20),
+                                             user_validators.validate_last_name])
+    password = models.CharField(db_column="Password", max_length=200)
+    date_of_birth = models.DateField(db_column="Date of Birth", help_text="date format should be YYYY-MM-DD")
+    city = models.CharField(db_column="City", max_length=10, validators=[user_validators.validate_city])
+    gender = models.CharField(db_column="Gender", max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0],
+                              help_text="Choose either Female or Male")
+    date_joined = models.DateTimeField(db_column="Date Joined", auto_now_add=True)
 
     USERNAME_FIELD = 'phone_number'
     EMAIL_FIELD = 'email_id'
