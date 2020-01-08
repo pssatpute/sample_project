@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 def validate_first_name(first_name):
     if re.fullmatch('^[A-Z][a-z]+$', first_name) is None:
         raise ValidationError(
-            _('First name is invalid. Should be like Ex. Pradnya, Akshay'),
+            _('First name only allows letters. It should be like Ex. Pradnya, Akshay'),
             code='Invalid'
         )
     return first_name
@@ -15,7 +15,7 @@ def validate_first_name(first_name):
 def validate_last_name(last_name):
     if re.fullmatch('^[A-Z][a-z]+$', last_name) is None:
         raise ValidationError(
-            _('Last name is invalid. Should be like Ex. Satpute, Bamane'),
+            _('Last name only allows letters. Should be like Ex. Satpute, Bamane'),
             code='Invalid'
         )
     return last_name
