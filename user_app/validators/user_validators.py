@@ -19,3 +19,11 @@ def validate_last_name(last_name):
             code='Invalid'
         )
     return last_name
+
+def validate_city(city):
+    if re.fullmatch('^[a-z][A-Z]+$', city) is None:
+        raise ValidationError(
+            _('City allows only characters'),
+            code='Invalid'
+        )
+    return city

@@ -22,7 +22,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     last_name = models.CharField(max_length=30, validators=[validators.MaxLengthValidator(limit_value=20),user_validators.validate_last_name])
     password = models.CharField(max_length=200)
     date_of_birth = models.DateField()
-    city = models.CharField(max_length=10)
+    city = models.CharField(max_length=10, validators=[user_validators.validate_city])
     gender = models.CharField(max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0])
     date_joined = models.DateTimeField(auto_now_add=True)
 
