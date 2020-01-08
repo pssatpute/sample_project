@@ -11,3 +11,11 @@ def validate_first_name(first_name):
             code='Invalid'
         )
     return first_name
+
+def validate_last_name(last_name):
+    if re.fullmatch('^[A-Z][a-z]+$', last_name) is None:
+        raise ValidationError(
+            _('Last name is invalid. Should be like Ex. Satpute, Bamane'),
+            code='Invalid'
+        )
+    return last_name

@@ -19,7 +19,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     phone_number = models.CharField("Phone Number", max_length=10, unique=True, primary_key=True)
     email_id = models.EmailField("Email ID", max_length=40, unique=True)
     first_name = models.CharField(max_length=15, validators=[validators.MaxLengthValidator(limit_value=15),user_validators.validate_first_name])
-    last_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30, validators=[validators.MaxLengthValidator(limit_value=20),user_validators.validate_last_name])
     password = models.CharField(max_length=200)
     date_of_birth = models.DateField()
     city = models.CharField(max_length=10)
