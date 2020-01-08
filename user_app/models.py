@@ -37,7 +37,6 @@ class User(PermissionsMixin, AbstractBaseUser):
     REQUIRED_FIELDS = ['email_id', 'first_name', 'last_name', 'date_of_birth', 'city', 'gender']
 
     is_active = models.BooleanField(
-        _('is_active'),
         default=True,
         help_text=_(
             "Desinates whether this user should be considered active or not."
