@@ -53,7 +53,22 @@ def validate_phone_number(phone_number):
 #                                      code='Invalid',
 #                                      whitelist=['gmail', 'yahoo'])
 
-#white_list not working
+# white_list not working
 email_validator = validators.EmailValidator(message='Enter a valid Email ID',
-                                     code='Invalid',
-                                     whitelist=['gmail'])
+                                            code='Invalid',
+                                            whitelist=['gmail'])
+
+
+class CustomPasswordValidator:
+    # def __init__(self, min_length, max_length):
+    def validate(self, password, user=None):
+        if not password.isalnum():
+            raise ValidationError(
+                _('Password must contain letters or numbers'),
+                code='password_invalid'
+            )
+
+    def get_help_text(self):
+        return _(
+            "Password must contain letters or numbers"
+        )

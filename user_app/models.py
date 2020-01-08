@@ -1,10 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.utils.translation import ugettext_lazy as _
-from django.utils import timezone
 from .managers.user_managers import UserManager
-from sample_project import settings
-from .validators import user_validators
+from sample_project.validators import user_validators
 from django.core import validators
 
 GENDER_OPTIONS = [
@@ -18,7 +16,8 @@ class User(PermissionsMixin, AbstractBaseUser):
 
     phone_number = models.CharField(db_column="Phone Number", max_length=13, unique=True, primary_key=True,
                                     validators=[user_validators.validate_phone_number])
-    email_id = models.EmailField(db_column="Email ID", max_length=40, unique=True, validators=[user_validators.email_validator])
+    email_id = models.EmailField(db_column="Email ID", max_length=40, unique=True, validators=[
+        user_validators.email_validator])
     first_name = models.CharField(db_column="First Name", max_length=15,
                                   validators=[validators.MaxLengthValidator(limit_value=15),
                                               user_validators.validate_first_name])

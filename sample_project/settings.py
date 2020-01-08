@@ -96,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-        'OPTIONS':{
+        'OPTIONS': {
             'min_length': 9,
         }
     },
@@ -106,6 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    {
+        'NAME': 'sample_project.validators.user_validators.CustomPasswordValidator',
+    }
 ]
 
 # Internationalization

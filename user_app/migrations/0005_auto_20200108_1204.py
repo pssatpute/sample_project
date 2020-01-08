@@ -2,7 +2,7 @@
 
 import django.core.validators
 from django.db import migrations, models
-import user_app.validators.user_validators
+import sample_project.validators.user_validators
 
 
 class Migration(migrations.Migration):
@@ -15,7 +15,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='city',
-            field=models.CharField(db_column='City', max_length=10, validators=[user_app.validators.user_validators.validate_city]),
+            field=models.CharField(db_column='City', max_length=10, validators=[
+                sample_project.validators.user_validators.validate_city]),
         ),
         migrations.AlterField(
             model_name='user',
@@ -35,7 +36,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='first_name',
-            field=models.CharField(db_column='First Name', max_length=15, validators=[django.core.validators.MaxLengthValidator(limit_value=15), user_app.validators.user_validators.validate_first_name]),
+            field=models.CharField(db_column='First Name', max_length=15, validators=[django.core.validators.MaxLengthValidator(limit_value=15), sample_project.validators.user_validators.validate_first_name]),
         ),
         migrations.AlterField(
             model_name='user',
@@ -45,7 +46,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='user',
             name='last_name',
-            field=models.CharField(db_column='Last Name', max_length=30, validators=[django.core.validators.MaxLengthValidator(limit_value=20), user_app.validators.user_validators.validate_last_name]),
+            field=models.CharField(db_column='Last Name', max_length=30, validators=[django.core.validators.MaxLengthValidator(limit_value=20), sample_project.validators.user_validators.validate_last_name]),
         ),
         migrations.AlterField(
             model_name='user',
