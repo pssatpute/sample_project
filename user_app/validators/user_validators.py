@@ -48,7 +48,12 @@ def validate_phone_number(phone_number):
     return phone_number
 
 
-def validate_email(email_id):
-    return validators.EmailValidator(message='Enter a valid Email Address',
+# def validate_email(email_id):
+#     return validators.EmailValidator(message='Enter a valid Email Address',
+#                                      code='Invalid',
+#                                      whitelist=['gmail', 'yahoo'])
+
+#white_list not working
+email_validator = validators.EmailValidator(message='Enter a valid Email ID',
                                      code='Invalid',
-                                     whitelist=['gmail', 'yahoo'])
+                                     whitelist=['gmail'])
