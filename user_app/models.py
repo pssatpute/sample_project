@@ -5,6 +5,7 @@ from django.utils import timezone
 from .managers.user_managers import UserManager
 from sample_project import settings
 from .validators import user_validators
+from django.core import validators
 
 GENDER_OPTIONS = [
     ('female', 'Female'),
