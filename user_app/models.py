@@ -37,6 +37,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     REQUIRED_FIELDS = ['email_id', 'first_name', 'last_name', 'date_of_birth', 'city', 'gender']
 
     is_active = models.BooleanField(
+        db_column="Is Active",
         default=True,
         help_text=_(
             "Desinates whether this user should be considered active or not."
@@ -46,6 +47,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     # permissions for accessing admin page
     is_staff = models.BooleanField(
         _('is_staff'),
+        db_column='Is Staff',
         default=False,
         help_text=_(
             'Designates whether this user is a member of staff to access the admin page or not'
@@ -53,6 +55,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     )
     is_superuser = models.BooleanField(
         _('is_superuser'),
+        db_column='Is Superuser',
         default=False,
         help_text=_(
             'Designates whether this user has all permissions in the admin page or not'
