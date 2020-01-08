@@ -2,6 +2,7 @@ from django.core import validators
 import re
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
+from django.core import validators
 
 
 def validate_first_name(first_name):
@@ -45,3 +46,9 @@ def validate_phone_number(phone_number):
             _('Phone Number only allows digits.(0-9)'),
         )
     return phone_number
+
+
+def validate_email(email_id):
+    return validators.EmailValidator(message='Enter a valid Email Address',
+                                     code='Invalid',
+                                     whitelist=['gmail', 'yahoo'])
