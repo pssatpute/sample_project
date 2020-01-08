@@ -12,6 +12,7 @@ def validate_first_name(first_name):
         )
     return first_name
 
+
 def validate_last_name(last_name):
     if re.fullmatch('^[A-Z][a-z]+$', last_name) is None:
         raise ValidationError(
@@ -19,6 +20,7 @@ def validate_last_name(last_name):
             code='Invalid'
         )
     return last_name
+
 
 def validate_city(city):
     city = str(city).lower()
@@ -28,3 +30,18 @@ def validate_city(city):
             code='Invalid'
         )
     return city
+
+
+def validate_phone_number(phone_number):
+    phone_number = str(phone_number)
+    if phone_number.isdigit():
+        if re.fullmatch('^([0])?([7-9][0-9]{9})$', phone_number) is None:
+            raise ValidationError(
+                _('Enter a valid Mobile Number(e.g 08345624986 or 8345624986)'),
+                code='Invalid'
+            )
+    else:
+        raise ValidationError(
+            _('Phone Number only allows digits.(0-9)'),
+        )
+    return phone_number
