@@ -23,7 +23,7 @@ class User(PermissionsMixin, AbstractBaseUser):
     password = models.CharField(max_length=200)
     date_of_birth = models.DateField()
     city = models.CharField(max_length=10, validators=[user_validators.validate_city])
-    gender = models.CharField(max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0])
+    gender = models.CharField(max_length=10, choices=GENDER_OPTIONS, default=GENDER_OPTIONS[0][0], help_text="Choose either Female or Male")
     date_joined = models.DateTimeField(auto_now_add=True)
 
     USERNAME_FIELD = 'phone_number'
