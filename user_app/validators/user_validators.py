@@ -21,9 +21,10 @@ def validate_last_name(last_name):
     return last_name
 
 def validate_city(city):
-    if re.fullmatch('^[a-z][A-Z]+$', city) is None:
+    city = str(city).lower()
+    if re.fullmatch('^[a-z]+$', city) is None:
         raise ValidationError(
-            _('City allows only characters'),
+            _('City allows only letters'),
             code='Invalid'
         )
     return city
